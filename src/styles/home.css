@@ -16,3 +16,68 @@
 .confirmation-modal button {
     margin-right: 10px;
 }
+
+.btn-light {
+    background-color: transparent;
+    border: none;
+    color: #131314;
+}
+
+.btn-light:hover {
+    color: #1a1a1b;
+}
+
+.list-group-item i {
+    margin-right: 8px; 
+    color: #6c757d; 
+}
+
+.list-group-item .ml-3 {
+    margin-left: 16px; /* Ajusta este valor según tus necesidades */
+}
+
+.list-group-item .rounded-circle {
+    width: 150px; /* Tamaño de la imagen */
+    height: 150px; /* Tamaño de la imagen */
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.contact-name {
+    font-size: 1.25em; 
+    font-weight: bold;
+    margin-bottom: 0.5rem; 
+}
+
+.btn-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+
+
+.navbar .btn {
+    margin-right: 10px;
+}
+
+.navbar .btn:last-child {
+    margin-right: 0;
+}
+
+.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .d-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

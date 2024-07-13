@@ -1,35 +1,37 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../store/appContext';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 
 export const EditContact = () => {
     const { store, actions } = useContext(Context);
     const { index } = useParams();
-    const [contact, setContact] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        address: ""
-    });
+    const [contact, setContact] = useState(null); 
     const navigate = useNavigate();
 
     useEffect(() => {
         if (store.contacts && store.contacts[index]) {
             setContact(store.contacts[index]);
-            console.log(store.contacts[index]);
+        } else {
+            navigate('/contact-list');
         }
-    }, [store.contacts, index]);
+    }, [store.contacts, index, navigate]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setContact({ ...contact, [name]: value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        await actions.updateContact(index, contact);
-        navigate('/contact-list');
+        if (contact) {
+            actions.updateContact(index, contact);
+            navigate('/contact-list');
+        }
     };
+
+    if (!contact) {
+        return <div>Loading...</div>; 
+    }
 
     return (
         <div className="container">
@@ -79,8 +81,9 @@ export const EditContact = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Save</button>
+                <button type="submit" className="btn btn-primary mt-4">Save</button>
             </form>
+            <Link to="/contact-list" className="btn btn-link mt-3">or get back to contacts</Link>
         </div>
     );
 };

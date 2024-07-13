@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Context } from '../store/appContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export const AddContact = () => {
     const { actions } = useContext(Context);
@@ -10,6 +10,7 @@ export const AddContact = () => {
         phone: "",
         address: ""
     });
+
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -29,50 +30,55 @@ export const AddContact = () => {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Full Name</label>
-                    <input 
+                    <input
                         type="text"
                         className="form-control"
                         id="name"
                         name="name"
+                        placeholder="Full Name"
                         value={contact.name}
                         onChange={handleChange}
                     />
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
-                    <input 
+                    <input
                         type="email"
                         className="form-control"
                         id="email"
                         name="email"
+                        placeholder="Enter email"
                         value={contact.email}
                         onChange={handleChange}
                     />
                 </div>
                 <div className="form-group">
                     <label htmlFor="phone">Phone</label>
-                    <input 
+                    <input
                         type="text"
                         className="form-control"
                         id="phone"
                         name="phone"
+                        placeholder="Enter phone"
                         value={contact.phone}
                         onChange={handleChange}
                     />
                 </div>
                 <div className="form-group">
                     <label htmlFor="address">Address</label>
-                    <input 
+                    <input
                         type="text"
                         className="form-control"
                         id="address"
                         name="address"
+                        placeholder="Enter address"
                         value={contact.address}
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Save</button>
+                <button type="submit" className="btn btn-primary mt-4">Save</button>
             </form>
+            <Link to="/contact-list" className="btn btn-link mt-3">or get back to contacts</Link>
         </div>
     );
 };
