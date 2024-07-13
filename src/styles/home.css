@@ -33,12 +33,12 @@
 }
 
 .list-group-item .ml-3 {
-    margin-left: 16px; /* Ajusta este valor según tus necesidades */
+    margin-left: 16px; 
 }
 
 .list-group-item .rounded-circle {
-    width: 150px; /* Tamaño de la imagen */
-    height: 150px; /* Tamaño de la imagen */
+    width: 150px; 
+    height: 150px; 
 }
 
 .flex-grow-1 {
